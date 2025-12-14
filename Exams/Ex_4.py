@@ -35,47 +35,69 @@
 """
 
 # -----------------------------------------------------------------------------------------------------------------------------------------
+""" ======================================================== Módulos Importados ============================================================= """
+
+# Dependencias
+from typing import Union                                                                                   # Tipos de Datos Avanzados
+
+# -----------------------------------------------------------------------------------------------------------------------------------------
 """ ======================================================== Posible Solución de Examen ============================================================= """
 
-# Contadores
-sum_minutes = 0           # Sumatoria para el Total de Minutos
-sum_calories = 0          # Sumatoria para el Total de Calorías
-count_sessions = 0        # Contador de Sesiones Registradas
+# Función: Mostrar el Resumen de Ejercicio 
+def show_exercise_summary(total_minutes: int, total_calories: Union[int, float], total_sessions: int) -> None:
+    
+    """
+        - Función: Mostrar el Resumen de Ejercicio
+        - Argumentos:
+            - total_minutes (int): Total de Minutos Ejercitados
+            - total_calories (Union[int, float]): Total de Calorías Quemadas
+            - total_sessions (int): Cantidad de Sesiones Registradas
+        - Retorno: Ninguno
+        - Objetivo: Mostrar el Resumen de Información del Ejercicio
+    """
 
-# Función para Mostrar el Resumen de Ejercicio (Sin Retorno)
-def show_exercise_summary(total_minutes: int, total_calories: int | float, total_sessions: int):
-    avg_calories = total_calories / total_sessions
-    print("\n========== RESUMEN DE EJERCICIO SEMANAL ==========")
-    print(f"Total de Minutos Ejercitados: {total_minutes} minutos")
-    print(f"Total de Calorías Quemadas: {round(total_calories, 2)} kcal")
-    print(f"Promedio de Calorías por Sesión: {round(avg_calories, 2)} kcal")
-    print(f"Cantidad de Sesiones Registradas: {total_sessions}")
-    print("==================================================\n")
+    # Mostrar Resumen de Ejercicio
+    print("\n========== RESUMEN DE EJERCICIO SEMANAL ==========")                                                # Título Resumen
+    print(f"Total de Minutos Ejercitados: {total_minutes} minutos")                                              # Total de Minutos
+    print(f"Total de Calorías Quemadas: {round(total_calories, 2)} kcal")                                        # Total de Calorías
+    print(f"Promedio de Calorías por Sesión: {round(total_calories / total_sessions, 2)} kcal")                  # Promedio de Calorías por Sesión
+    print(f"Cantidad de Sesiones Registradas: {total_sessions}")                                                 # Cantidad de Sesiones
+    print("==================================================\n")                                                # Línea Final Resumen
+
+
+
+
+# Contadores
+sum_minutes = 0                                                                                                  # Sumatoria para el Total de Minutos
+sum_calories = 0                                                                                                 # Sumatoria para el Total de Calorías
+count_sessions = 0                                                                                               # Contador de Sesiones Registradas
+
 
 # Bucle Principal
 while count_sessions < 3:
 
     # Lectura de Datos
     print(f"\n--- Sesión de Ejercicio {count_sessions + 1} ---")
-    exercise_type = input("Ingresa el Tipo de Ejercicio (Cardio/Fuerza/Resistencia): ")                    # Tipo de Ejercicio
-    while exercise_type != "Cardio" and exercise_type != "Fuerza" and exercise_type != "Resistencia":      # Validación Tipo
+    exercise_type = input("Ingresa el Tipo de Ejercicio (Cardio/Fuerza/Resistencia): ")                          # Tipo de Ejercicio
+    while exercise_type != "Cardio" and exercise_type != "Fuerza" and exercise_type != "Resistencia":            # Validación Tipo
         print("ERROR. El Tipo de Ejercicio debe ser: Cardio, Fuerza o Resistencia")
         exercise_type = input("Ingresa el Tipo de Ejercicio (Cardio/Fuerza/Resistencia): ")
     
-    minutes = int(input("Ingresa los Minutos de Duración: "))                                               # Minutos de Duración
-    while minutes <= 0:                                                                                     # Validación Minutos
+    minutes = int(input("Ingresa los Minutos de Duración: "))                                                    # Minutos de Duración
+    while minutes <= 0:                                                                                          # Validación Minutos
         print("ERROR. Los Minutos deben ser Mayor a 0")
         minutes = int(input("Ingresa los Minutos de Duración: "))
     
-    calories = float(input("Ingresa las Calorías Quemadas Aproximadas: "))                                  # Calorías Quemadas
-    while calories <= 0:                                                                                    # Validación Calorías
+    calories = float(input("Ingresa las Calorías Quemadas Aproximadas: "))                                       # Calorías Quemadas
+    while calories <= 0:                                                                                         # Validación Calorías
         print("ERROR. Las Calorías deben ser Mayor a 0")
         calories = float(input("Ingresa las Calorías Quemadas Aproximadas: "))
 
     # Actualización de Contadores
-    sum_minutes += minutes          # Total de Minutos
-    sum_calories += calories        # Total de Calorías
-    count_sessions += 1             # Contador de Sesiones
+    sum_minutes += minutes                                                                                       # Total de Minutos
+    sum_calories += calories                                                                                     # Total de Calorías
+    count_sessions += 1                                                                                          # Contador de Sesiones
+
 
 # Llamada a la Función para Mostrar el Resumen
 show_exercise_summary(sum_minutes, sum_calories, count_sessions)

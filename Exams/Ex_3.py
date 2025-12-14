@@ -35,10 +35,38 @@
 """
 
 # -----------------------------------------------------------------------------------------------------------------------------------------
+""" ======================================================== Módulos Importados ============================================================= """
+
+# Dependencias
+from typing import Union                                                                                   # Tipos de Datos Avanzados
+
+# -----------------------------------------------------------------------------------------------------------------------------------------
 """ ======================================================== Posible Solución de Examen ============================================================= """
 
-# Contadores
-sum_daily_income = 0          # Sumatoria para el Total de Ingresos de Todos los Días
+# Función: Calcular el Ingreso Promedio por Día
+def prom_daily_income(total_weekly_income: Union[int, float]) -> Union[int, float]: 
+    
+    """
+        - Función: Calcular el Ingreso Promedio por Día
+        - Argumentos:
+            - total_weekly_income (Union[int, float]): Total de Ingresos de la Semana
+        - Retorno:
+            - Union[int, float]: Ingreso Promedio por Día Redondeado a 2 Decimales
+        - Objetivo: Calcular el Ingreso Promedio por Día Redondeado a 2 Decimales
+    """
+
+    # Cálculo de Ingreso Promedio por Día
+    prom_income = total_weekly_income / 7
+    
+    # Retorno de Ingreso Promedio Redondeado a 2 Decimales
+    return round(prom_income, 2)
+
+
+
+
+# Sumatoria para el Total de Ingresos de Todos los Días
+sum_daily_income = 0          
+
 
 # Bucle Principal
 for i in range(7):
@@ -68,10 +96,6 @@ for i in range(7):
     # Actualización de Contadores
     sum_daily_income += daily_income       # Total de Ingresos de la Semana
 
-# Función para Calcular el Ingreso Promedio por Día
-def prom_daily_income(total_weekly_income: int | float): 
-    prom_income = total_weekly_income / 7
-    return round(prom_income, 2)
 
 # Impresión de Mensaje
 print("El Ingreso Promedio por Día de la Semana es de: ${}".format(prom_daily_income(sum_daily_income)))

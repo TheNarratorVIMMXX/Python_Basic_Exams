@@ -33,11 +33,45 @@
 """
 
 # -----------------------------------------------------------------------------------------------------------------------------------------
+""" ======================================================== Módulos Importados ============================================================= """
+
+# Dependencias
+from typing import Union                                                                                   # Tipos de Datos Avanzados
+
+# -----------------------------------------------------------------------------------------------------------------------------------------
 """ ======================================================== Posible Solución de Examen ============================================================= """
 
+# Función: Calcular el Precio Promedio del Proveedor por Producto
+def prom_price_per_product(
+        
+    total_provider_amount: Union[int, float], 
+    total_cant_products: Union[int, float]
+    
+) -> Union[int, float]: 
+    
+    """
+        - Función: Calcular el Precio Promedio del Proveedor por Producto
+        - Argumentos:
+            - total_provider_amount (Union[int, float]): Total del Costo de Adquisición de Productos
+            - total_cant_products (Union[int, float]): Total de Cantidad de Productos
+        - Retorno:
+            - Union[int, float]: Precio Promedio por Producto con el Proveedor Redondeado a 2 Decimales
+        - Objetivo: Calcular el Precio Promedio por Producto con el Proveedor Redondeado a 2 Decimales
+    """
+
+    # Cálculo de Precio Promedio
+    prom_price = total_provider_amount / total_cant_products
+    
+    # Retorno de Precio Promedio Redondeado a 2 Decimales
+    return round(prom_price, 2)
+
+
+
+
 # Contadores
-sum_provider_price = 0          # Sumatoria para el Total de Costo de Adquisición de Todos los Productos
-sum_product_amount = 0          # Sumatoria de la Cantidad Total de Productos
+sum_provider_price = 0                                                                                     # Total de Costo de Adquisición de Productos
+sum_product_amount = 0                                                                                     # Sumatoria de la Cantidad Total de Productos
+
 
 # Bucle Principal
 for i in range(10):
@@ -58,14 +92,9 @@ for i in range(10):
         product_amount = int(input("Ingresa la Cantida del Producto en Tienda: ")) 
 
     # Actualización de Contadores
-    sum_provider_price += product_amount * provider_price       # Total del Precio Pagado al Proveedor
-    sum_product_amount += product_amount                        # Total de Cantidad de Productos
+    sum_provider_price += product_amount * provider_price                                                  # Total del Precio Pagado al Proveedor
+    sum_product_amount += product_amount                                                                   # Total de Cantidad de Productos
 
-
-# Función para Calcular el Precio Promedio del Proveedor por Producto
-def prom_price_per_product(total_provider_amount: int | float , total_cant_products): 
-    prom_price = total_provider_amount / total_cant_products
-    return round(prom_price, 2)
 
 # Impresión de Mensaje
 print(f"El Costo Promedio por Producto con el Proveedor es de: ${prom_price_per_product(sum_provider_price, sum_product_amount)}")

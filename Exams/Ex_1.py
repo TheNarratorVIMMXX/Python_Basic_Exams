@@ -2,7 +2,7 @@
 
 # DOCUMENTACIÓN:
 
-""" Examen 1:  Rifa Benéfica Escuela """
+""" Examen 1: Rifa Benéfica Escuela """
 
 # NOTE: Fecha de Realización: 22/10/2025
 # NOTE: Autor: Magallanes López Carlos Gabriel
@@ -34,14 +34,15 @@
 # -----------------------------------------------------------------------------------------------------------------------------------------
 """ ======================================================== Módulos Importados ============================================================= """
 
-import random          # Módulo de Funciones de Aleatoriedad
+# Dependencias
+import random                                                                                  # Módulo de Funciones de Aleatoriedad
 
 # -----------------------------------------------------------------------------------------------------------------------------------------
 """ ======================================================== Posible Solución de Examen ============================================================= """
 
 # Contadores
-i = 0          # Variable de Control para el Bucle
-lost = 0       # Contador de Participaciones que no ganaron el Premio
+i = 0                                                                                          # Variable de Control para el Bucle
+lost = 0                                                                                       # Contador de Participaciones que no ganaron Premio
 
 
 # Bucle Principal 
@@ -57,9 +58,9 @@ while i < 5:
     while calif_spanish < 1 or calif_spanish > 10:                                             # Validación Rango 1 - 10
         print("ERROR. El Rango de Calificación es del 1 - 10")
         calif_spanish = (int(input("Ingresa tu Calificación en Lengua y Comunicación: ")))         
-    calif_ecology = int(input("Ingresa tu Calificación en Ecología: "))                         # Califcicaión Ecología 
-    while calif_ecology < 1 or calif_ecology > 10:                                             # Validación Rango 1 -10
-        print("ERROR. El Rango de Calificación es del 1 - 10")
+    calif_ecology = int(input("Ingresa tu Calificación en Ecología: "))                        # Califcicaión Ecología 
+    while calif_ecology < 1 or calif_ecology > 10:                                             # Validación Rango 1 - 10
+        print("ERROR. El Rango de Calificación es del 1 - 10") 
         calif_ecology = int(input("Ingresa tu Calificación en Ecología: "))                        
     
     
@@ -88,9 +89,7 @@ while i < 5:
     i += 1
 
 
-# Si se Perdieron todas las Participaciones imrpimimos Nensaje Perdedor 
+# Si se Perdieron todas las Participaciones imrpimimos Mensaje Perdedor 
 if lost == 5: print("Ningún Participante Ganó la Rifa")
-
-
 
 # -----------------------------------------------------------------------------------------------------------------------------------------
